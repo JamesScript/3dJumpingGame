@@ -43,10 +43,10 @@ function init() {
 
     player.geometry = new THREE.BoxGeometry(100, 100, 100);
 
-    player.texture = new THREE.TextureLoader().load('CrossBowler-1.png');
-    player.texture.anisotropy = 0;
-    player.texture.magFilter = THREE.NearestFilter;
-    player.texture.minFilter = THREE.NearestFilter;
+    player.texture = new THREE.TextureLoader().load('meSquare.png');
+    // player.texture.anisotropy = 0;
+    // player.texture.magFilter = THREE.NearestFilter;
+    // player.texture.minFilter = THREE.NearestFilter;
 
     player.material = new THREE.MeshPhongMaterial({
         color: 0xF3FFE2,

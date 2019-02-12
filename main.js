@@ -10,8 +10,8 @@ let camera;
 let scene;
 
 let light;
-let light2;
-let light3;
+// let light2;
+// let light3;
 let spotLight;
 
 let geometry;
@@ -24,24 +24,6 @@ let controls;
 init();
 ground[0] = new Ground(0, -100, -24000, 600, 100, 50000, 0);
 ground[0].insert();
-//
-// ground[1] = new Ground(50, 0, -3000, 100, 100, 100, 1);
-// ground[1].insert();
-//
-// ground[2] = new Ground(150, 0, -3000, 100, 100, 100, 1);
-// ground[2].insert();
-//
-// ground[3] = new Ground(250, 0, -3000, 100, 100, 100, 1);
-// ground[3].insert();
-//
-// ground[4] = new Ground(-50, 0, -4200, 100, 100, 100, 1);
-// ground[4].insert();
-//
-// ground[5] = new Ground(-150, 0, -4200, 100, 100, 100, 1);
-// ground[5].insert();
-//
-// ground[6] = new Ground(-250, 0, -4200, 100, 100, 100, 1);
-// ground[6].insert();
 
 function levelGen(level, row) {
     for (let j = 0; j < levels[level][row].length; j++) {
@@ -51,7 +33,7 @@ function levelGen(level, row) {
                 ground[ground.length - 1].insert();
                 break;
             case "2":
-                ground.push(new Ground(-250 + j * 100, 0, -10000, 100, 300, 100, 2));
+                ground.push(new Ground(-250 + j * 100, 50, -10000, 100, 200, 100, 2));
                 ground[ground.length - 1].insert();
                 break;
         }
@@ -65,13 +47,13 @@ function checkKey(e) {
 
     e = e || window.event;
 
-    if (e.keyCode === 37) {
+    if (e.key === "ArrowLeft" || e.keyCode === 37) {
         player.xVel = -20;
     }
-    if (e.keyCode === 39) {
+    if (e.key === "ArrowRight" || e.keyCode === 39) {
         player.xVel = 20;
     }
-    if ((e.keyCode === 32 || e.keyCode === 38) && player.grounded) {
+    if ((e.key === "ArrowUp" || e.key === " " || e.keyCode === 32 || e.keyCode === 38) && player.grounded) {
         player.yVel = player.jumpStrength;
     }
 }
